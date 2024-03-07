@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="BookApp1.Views.AuthorsPage"
+             xmlns:viewmodels="clr-namespace:BookApp1.ViewModels"
+             xmlns:model="clr-namespace:BookApp1.Models"
+             x:DataType="viewmodels:AuthorsPageViewModel"
+             
+             Title="AuthorsPage">
+    <ScrollView>
+        <VerticalStackLayout BackgroundColor="Black">
+            <StackLayout>
+                <ImageButton Source="{Binding CurrentBook.Profile}"
+                   HeightRequest="400"
+                   VerticalOptions="Center"
+                   CornerRadius="220"
+                   Margin="0,-60,0,0"/>
+            </StackLayout>
+            <Frame Margin="0,-60,0,0" BackgroundColor="LightGoldenrodYellow">
+                <StackLayout>
+
+                    <Label Text="{Binding CurrentBook.Name}"
+                     FontSize="Title"
+                     FontAttributes="Bold"
+                     HorizontalOptions="Center"
+                    />
+
+                    <Border BackgroundColor="Black" Margin="0,10,0,0" HeightRequest="7" WidthRequest="500"/>
+
+                    <Label Text="{Binding CurrentBook.Age, StringFormat='Date of birth :&#x0a;{0}.'}"
+                       Margin="0,10,0,0"
+                       FontSize="Subtitle"
+                       FontAttributes="Bold"/>
+
+                    <Border BackgroundColor="Black" Margin="0,10,0,0" HeightRequest="7" WidthRequest="500"/>
+
+                    <Label Text="{Binding CurrentBook.Nationality, StringFormat='Nationality :&#x0a;{0}.'}"
+                       FontSize="Subtitle"
+                       FontAttributes="Bold"/>
+
+                    <Border BackgroundColor="Black" Margin="0,10,0,0" HeightRequest="7" WidthRequest="500"/>
+
+                    <Label Text="{Binding CurrentBook.Education, StringFormat='Education :&#x0a;{0}.'}"
+                       FontSize="Subtitle"
+                       FontAttributes="Bold"/>
+
+                    <Border BackgroundColor="Black" Margin="0,10,0,0" HeightRequest="7" WidthRequest="500"/>
+
+                    <Label Text="{Binding CurrentBook.RelevantAwards, StringFormat='Rewards :&#x0a;{0}.'}"
+                       FontSize="Subtitle"
+                       FontAttributes="Bold"/>
+
+                    <Border BackgroundColor="Black" Margin="0,10,0,0" HeightRequest="7" WidthRequest="500"/>
+
+                    <Label Text="{Binding CurrentBook.OtherJobs, StringFormat='Other Jobs :&#x0a;{0}.'}"
+                       FontSize="Subtitle"
+                       FontAttributes="Bold"/>
+
+                    <Border BackgroundColor="Black" Margin="0,10,0,0" HeightRequest="7" WidthRequest="500"/>
+
+                    <Label Text="{Binding CurrentBook.Bio, StringFormat='Biography :&#x0a;{0}.'}"
+                       FontSize="Subtitle"
+                       FontAttributes="Bold"/>
+
+                    <Border BackgroundColor="Black" Margin="0,10,0,0" HeightRequest="7" WidthRequest="500"/>
+
+                    <StackLayout Orientation="Vertical">
+                        <Label Text="Popular Books :"
+                               FontSize="Subtitle"
+                               FontAttributes="Bold"
+                               HorizontalOptions="Center"
+                               Margin="0,0,0,10"
+                               />
+                        <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+                            <Image Source="{Binding CurrentBook.Book1}"
+                               HeightRequest="200"
+                            />
+                            <Image Source="{Binding CurrentBook.Book2}"
+                               HeightRequest="200"
+                            />
+                        </StackLayout>
+                    </StackLayout>
+
+                </StackLayout>
+            </Frame>
+
+
+            <Button Text="Back to main"
+                    FontSize="Large"
+                    CornerRadius="30"
+                    Command="{Binding BackToMainPageCommand}"
+                    BackgroundColor="BlueViolet"
+                    Margin="50,5,50,0"/>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

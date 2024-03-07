@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="BookApp1.Views.DetailsBookPage"
+             xmlns:viewmodels="clr-namespace:BookApp1.ViewModels"
+             xmlns:model="clr-namespace:BookApp1.Models"
+             x:DataType="viewmodels:DetailsBookPageViewModel"
+             Shell.NavBarIsVisible="False"
+             
+             Title="DetailsBookPage">
+
+    <ScrollView>
+        <VerticalStackLayout BackgroundColor="LightBlue">
+            <StackLayout>
+                <Label 
+                    Text="{Binding CurrentBook.Title}"
+                    FontSize="30"
+                    TextDecorations="Underline"
+                    FontAttributes="Bold"
+                    VerticalOptions="Center" 
+                    HorizontalOptions="Center"
+                    Margin="0,10,0,3"/>
+
+                <Image
+                      Source="{Binding CurrentBook.Image}"
+                      MaximumHeightRequest="400"
+                      VerticalOptions="Center" 
+                      HorizontalOptions="Center"
+                      Margin="0,20,0,0"
+                />
+
+                <StackLayout Margin="-10,0,0,0">
+                    <Frame BackgroundColor="LightPink" Margin="10,10,0,0" CornerRadius="25" >
+                        <StackLayout >
+                            <Label Text="{Binding CurrentBook.AuthorName, StringFormat='Author Name : {0}.'}"
+                                FontAttributes="Bold"
+                                FontSize="18"
+                                Margin="0,-5,0,0"
+                            />
+                            <Label Text="{Binding CurrentBook.Year, StringFormat='Realease Year : {0}.'}"
+                                FontAttributes="Bold"
+                                FontSize="18"
+                                Margin="0,7,0,0"
+                            />
+                            <Label Text="{Binding CurrentBook.Publisher, StringFormat='Publisher : {0}.'}"
+                                FontAttributes="Bold"
+                                FontSize="18"
+                                Margin="0,7,0,0"
+                            />
+
+                            <Label Text="{Binding CurrentBook.Genre, StringFormat='Genre : {0}.'}"
+                                FontAttributes="Bold"
+                                FontSize="18"
+                                Margin="0,7,0,0"
+                            />
+
+                            <Label Text="{Binding CurrentBook.Characters, StringFormat='Character Name :&#x0a;{0}.'}"
+                                FontAttributes="Bold"
+                                FontSize="18"
+                                Margin="0,7,0,0"
+                            />
+                            
+                            <Label Text="{Binding CurrentBook.PageNumber, StringFormat='Page Number : {0} pages.'}"
+                                FontAttributes="Bold"
+                                FontSize="18"
+                                Margin="0,7,0,0"
+                            />
+                            
+                            <Label Text="{Binding CurrentBook.Themes, StringFormat='Themes :&#x0a;{0}.'}"
+                                FontAttributes="Bold"
+                                FontSize="18"
+                                Margin="0,7,0,0"
+                            />
+                            
+                            <Label Text="{Binding CurrentBook.Description, StringFormat='Summary :&#x0a;{0}.'}"
+                                FontAttributes="Bold"
+                                FontSize="18"
+                                Margin="0,7,0,0"
+                            />
+                        </StackLayout>
+                    </Frame>
+                </StackLayout>
+            </StackLayout>
+            <Button Text="Back to main"
+                    FontSize="Large"     
+                    BackgroundColor="BlueViolet"    
+                    Command="{Binding BackToMainPageCommand}"
+                    Margin="50,5,50,0"/>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

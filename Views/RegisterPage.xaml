@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage BackgroundColor="LightBlue"
+             xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="BookApp1.Views.RegisterPage"
+             xmlns:viewmodels="clr-namespace:BookApp1.ViewModels"
+             x:DataType="viewmodels:RegisterPageViewModel"
+             
+             Title="BookApp">
+    <StackLayout BackgroundColor="LightBlue" Spacing="-10" HorizontalOptions="Center">
+        <StackLayout HorizontalOptions="Center" >
+            <Label  Text="Register a new account"
+                       FontSize="30"
+                       FontAttributes="Bold"
+                       TextColor="Black"
+                       FontFamily="Consolas"
+                       HorizontalOptions="Center"
+                       Padding="40"/>
+
+            <Label  Text="Please fill the details in order to register"
+                       FontSize="17"
+                       FontAttributes="Bold"
+                       TextColor="Black"
+                       FontFamily="Consolas"
+                       HorizontalOptions="Center"
+                       Margin="-40"
+                       Padding="40"/>
+
+        </StackLayout>
+
+        <Border WidthRequest="0" BackgroundColor="LightBlue" Margin="50"/>
+
+        <VerticalStackLayout BackgroundColor="LightSkyBlue" Spacing="10"  VerticalOptions="Center" HorizontalOptions="Center">
+            <Frame BackgroundColor="AliceBlue" BorderColor="Black">
+                <VerticalStackLayout>
+                    <Label
+                        Text="Username :"
+                        FontSize="19"
+                        FontAttributes="Bold"
+                        VerticalOptions="Center"
+                        HorizontalOptions="Center"/>
+                    <Entry Text="{Binding Username}" />
+
+                    <Label
+                        Text="Email :"
+                        FontSize="19"
+                        FontAttributes="Bold"
+                        VerticalOptions="Center"
+                        HorizontalOptions="Center"/>
+                    <Entry Text="{Binding Email}" />
+
+                    <Label 
+                            Text="Password :"
+                            FontSize="19"
+                            FontAttributes="Bold"
+                            VerticalOptions="Center"
+                            HorizontalOptions="Center"/>
+                    <Entry Text="{Binding Password}"
+                           IsPassword="True"/>
+
+                    <Label
+                        Text="In case you don´t have account please register"
+                        TextColor="AliceBlue"
+                        FontSize="15"
+                        FontAttributes="Bold"
+                        VerticalOptions="Center"
+                        HorizontalOptions="Center"
+                    />
+
+
+                    <Button Text="Register" FontSize="19" Margin="10" BackgroundColor="BlueViolet" TextColor="Black" Command="{Binding RegisterCommand}" />
+
+
+                </VerticalStackLayout>
+            </Frame>
+        </VerticalStackLayout>
+    </StackLayout>
+</ContentPage>

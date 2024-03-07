@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="BookApp1.Views.MainPage"
+             xmlns:viewmodels="clr-namespace:BookApp1.ViewModels"
+             xmlns:model="clr-namespace:BookApp1.Models"
+             x:DataType="viewmodels:MainPageViewModel"
+             
+             Title="BookApp">
+
+    <ScrollView>
+        <StackLayout>
+            <StackLayout BackgroundColor="BlueViolet">
+                <Button
+                    BackgroundColor="BlueViolet"
+                    CornerRadius="0"
+                    FontSize="15"
+                    HorizontalOptions="Start"
+                    Text="LogOut"
+                    Command="{Binding GoBackLoginCommand}"
+                    
+                    />
+            </StackLayout>
+                <CollectionView ItemsSource="{Binding BookList}" x:Name="collectionView">
+            <CollectionView.ItemTemplate>
+                <DataTemplate x:DataType="{x:Type model:Book }">
+                    <StackLayout BackgroundColor="LightBlue">
+                        
+                            <StackLayout Orientation="Horizontal" Spacing="-10" HorizontalOptions="Start">
+                                <ImageButton
+                                    Source="{Binding Image}"
+                                    HeightRequest="300"
+                                    Command="{Binding Source={x:Reference collectionView }, Path=BindingContext.GoToDetailCommand }"
+                                    CommandParameter="{Binding .}"
+                                    CornerRadius="25"/>
+
+                            <StackLayout Margin="18,0,0,10" Orientation="Vertical" >
+
+                                <Label Grid.Column="1"
+                                    MaximumWidthRequest="170"
+                                    Text="{Binding Title}"
+                                    TextColor="Black"
+                                    FontSize="Title"
+                                    FontAttributes="Bold"
+                                    Margin="0,0,10,0"
+                                    
+                                    />
+
+                                <Label
+                                    Text="Author Name :"
+                                    TextColor="black"
+                                    FontSize="Medium"
+                                    FontAttributes="Bold"
+                                    HorizontalOptions="Start"
+                                    Margin="-5,0,0,0"                    
+                                    
+                                    />
+
+                                <Label Grid.Row="1"
+                                    Grid.Column="1"
+                                    Text="{Binding AuthorName}"
+                                    MaximumWidthRequest="170"
+                                    HorizontalOptions="Start"
+                                    FontAttributes="Bold"
+                                    VerticalOptions="End"
+                                    FontSize="Subtitle"
+                                    
+                                       />
+                                
+
+                                <Label
+                                    Text="Publisher : "
+                                    TextColor="black"
+                                    FontSize="Medium"
+                                    FontAttributes="Bold"
+                                    HorizontalOptions="Start"
+                                    MaximumWidthRequest="100"
+                                    
+                                    />
+
+                                    <Label Grid.Row="1"
+                                    Grid.Column="1"
+                                    Text="{Binding Publisher}"
+                                    FontAttributes="Bold"
+                                    VerticalOptions="End"
+                                    FontSize="Subtitle"
+                                    HorizontalOptions="Start"
+                                    />
+
+                                    <Label
+                                    Text="Realease Year : "
+                                    TextColor="black"
+                                    FontSize="Medium"
+                                    FontAttributes="Bold"
+                                    HorizontalOptions="Start"
+                                    
+                                    />
+
+                                    <Label Grid.Row="1"
+                                    Grid.Column="1"
+                                    Text="{Binding Year}"
+                                    FontAttributes="Bold"
+                                    VerticalOptions="End"
+                                    FontSize="Subtitle"
+                                    HorizontalOptions="Start"
+                                    />
+
+                                <Button
+                                    Command="{Binding Source={x:Reference collectionView }, Path=BindingContext.GoToAuthorsPageCommand}"
+                                    CommandParameter="{Binding .}"
+                                    CornerRadius="30"
+                                    Text="Author Details"
+                                    BackgroundColor="BlueViolet"
+                                    TextColor="Black"
+                                    Padding="10,0,10,0"
+                                    Margin="0,40,40,0"
+                                    />
+                            </StackLayout>
+                            </StackLayout>
+                            <Border  FlexLayout.Basis="Auto" BackgroundColor="Black" HeightRequest="11" WidthRequest="400" Margin="-2"  />
+                    </StackLayout>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+        </StackLayout>
+    </ScrollView>
+</ContentPage>
